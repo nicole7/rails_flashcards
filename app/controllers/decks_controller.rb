@@ -5,7 +5,7 @@ class DecksController < ApplicationController
 
   def show
     @deck = Deck.find(params[:id])
-    @cards = @deck.cards
+    @cards = @deck.cards.shuffle
     @card = @cards.first
     render '/cards/show'
   end

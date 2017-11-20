@@ -110,3 +110,5 @@ Card.create!(punk_cards)
 Card.create!(hip_hop_cards)
 Card.create(alt_cards)
 Card.create(lyric_cards)
+
+

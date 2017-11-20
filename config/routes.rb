@@ -3,8 +3,12 @@ Rails.application.routes.draw do
 
   root 'decks#index'
 
-  resources :decks do
-    resources :cards
+  resources :decks, only: [:show, :index] do
+    resources :rounds, only: [:create, :destroy, :show] do
+      resources :cards, only: [:show] do
+        resources :guesses, only: [:create]
+      end
+    end
   end
 
   get '/login', to: 'sessions#new'

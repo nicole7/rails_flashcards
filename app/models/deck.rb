@@ -3,12 +3,23 @@ class Deck < ApplicationRecord
   has_many :rounds
   has_many :guesses, through: :rounds, source: :user
 
-  def shuffle_cards
-    self.cards.shuffle
-  end
+  # def shuffle_cards
+  #   self.cards.shuffle
+  # end
 
   def get_next_card
 
+  end
+
+  def rotate
+    randomized_ids = self.cards.pluck(:id).rotate
+    rotated_cards = []
+
+    randomized_ids.each do |id|
+      rotated_cards << Card.find(id)
+    end
+
+    rotated_cards
   end
 
 end
