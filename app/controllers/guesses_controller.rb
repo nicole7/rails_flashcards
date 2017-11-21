@@ -8,10 +8,6 @@ class GuessesController < ApplicationController
     correct_guesses = @deck.round.guesses.where(correct?: true)
     rotated_cards = @deck.rotate
     @current_cards = rotated_cards - get_correct_cards(correct_guesses)
-
-
-
-
   end
 
   private

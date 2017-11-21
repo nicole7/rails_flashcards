@@ -1,3 +1,10 @@
 <h2><%= @deck.category%></h2>
 
 <%= @card.question %>
+
+<h3>Submit an Answer<h3>
+<%= form_for [@deck, @round, @card, @guess] do |f| %>
+  <%= f.label :answer %>
+  <%= f.text_field :answer %>
+  <%= f.submit %>
+<% end %>
