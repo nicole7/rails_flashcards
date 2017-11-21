@@ -9,6 +9,24 @@
   </head>
 
   <body>
+
+      <%= link_to "Home", root_path %>
+      <% if logged_in? %>
+        <p>Hi, <%= current_user.email %>! </p>
+        <%= link_to "Logout", logout_path %>
+      <% else %>
+       <li class=“active”>
+         <%= link_to "Sign Up", '/users/new' %>
+       </li>
+       <li class=“active”>
+         <%= link_to "Login", '/login' %>
+       </li>
+       <% end %>
+
+     </ul>
+   </div><!-- /.navbar-collapse -->
+ </div><!-- /.container-fluid -->
+</nav>
     <%= yield %>
   </body>
 </html>
